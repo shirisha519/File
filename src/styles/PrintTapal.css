@@ -1,0 +1,112 @@
+
+
+
+
+
+.printtapal-page{
+    display: flex;
+  justify-content: center;
+  padding: 30px 0;
+  background-color: lightyellow;
+  font-family: Arial, sans-serif;
+}
+.printtapal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.printtapal-title {
+  color: maroon;
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.printtapal-subtitle {
+  color: green;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.printtapal-box {
+  border: 1px solid gray;
+  background-color: white;
+  padding: 25px 40px;
+  width: 550px;
+  border-radius: 6px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.printtapal-form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.printtapal-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.printtapal-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.printtapal-input {
+  padding: 6px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  width: 150px;
+}
+
+.printtapal-submit-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-weight: bold;
+  padding: 7px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 22px;
+}
+
+.printtapal-submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.printtapal-textarea {
+  margin-top: 15px;
+  width: 550px;
+  height: 150px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  padding: 10px;
+  resize: none;
+}
+
+.printtapal-btn-group {
+  display: flex;
+  justify-content: flex-end;
+  width: 550px;
+  margin-top: 10px;
+}
+
+.printtapal-print-btn {
+  background-color: green;
+  color: white;
+  border: none;
+  font-weight: bold;
+  padding: 7px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.printtapal-print-btn:hover {
+  background-color: darkgreen;
+}

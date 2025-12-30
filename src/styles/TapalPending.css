@@ -1,0 +1,167 @@
+
+
+
+
+.tapal-pending-page{
+     display: flex;
+  justify-content: center;
+  padding: 30px 0;
+  background-color:lightgreen;
+  font-family: Arial, sans-serif;
+}
+
+.pending-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.pending-title {
+  color: maroon;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.pending-subtitle {
+  color: green;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.pending-box {
+  border: 1px solid gray;
+  border-radius: 8px;
+  background-color: white;
+  width: 950px;
+  margin: 0 auto 2px auto;
+  padding: 20px 25px;
+}
+
+/* GRID LAYOUT */
+.pending-grid {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  align-items: center;
+}
+
+/* INLINE FIELDS */
+.pending-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.pending-field label {
+  font-weight: bold;
+  font-size: 13px;
+  width: 120px;
+  text-align: right;
+  margin-right: 8px;
+}
+
+.pending-field input {
+  padding: 4px 6px;
+  font-size: 13px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  width: 160px;
+}
+
+/* CENTER OR */
+.pending-or {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pending-or span {
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* RIGHT COLUMN */
+.pending-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  margin-left: 30px;
+}
+
+/* SEARCH BUTTONS */
+.pending-search-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 13px;
+  width: 95px;
+  cursor: pointer;
+}
+
+.pending-search-btn:hover {
+  background-color: #0056b3;
+}
+
+/* DATE RANGE */
+.pending-range {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pending-range-label {
+  font-weight: bold;
+}
+
+.pending-small-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.pending-small-btn:hover {
+  background-color: #0056b3;
+}
+
+/* TEXTAREA */
+.pending-result-box {
+  width: 950px;
+  height: 200px;
+  margin-top: 5px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  padding: 19px;
+  font-size: 14px;
+}
+
+/* PRINT BUTTON */
+.pending-print-container {
+  width: 950px;
+  margin: 8px auto;
+  text-align: right;
+}
+
+.pending-print-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 7px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pending-print-btn:hover {
+  background-color: #1e7e34;
+}

@@ -1,0 +1,130 @@
+/* ===== Page Layout ===== */
+
+
+
+
+
+.tapal-received-page {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+  background-color:lightpink;
+  font-family: Arial, sans-serif;
+}
+
+.tapal-container {
+  text-align: center;
+  width: 100%;
+}
+
+.tapal-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #5a2e0e;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.tapal-subtitle {
+  font-size: 18px;
+  color: #2d2d2d;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+/* ===== Tapal Box ===== */
+.tapal-box {
+  width: 60%;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 2px solid #d4c1a1;
+  border-radius: 8px;
+  padding: 25px 35px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Header Row ===== */
+.tapal-header-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+/* ===== Form Rows ===== */
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.form-row label {
+  width: 140px;
+  text-align: right;
+  font-weight: 500;
+  color: #333;
+  margin-right: 10px;
+}
+
+.form-row input,
+.form-row textarea {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 14px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+textarea {
+  resize: none;
+}
+
+/* ===== Buttons ===== */
+.button-group {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.button-group button {
+  padding: 8px 18px;
+  margin: 0 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+}
+
+.submit-btn {
+  background-color: #007bff;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.clear-btn {
+  background-color: #d9534f;
+}
+
+.clear-btn:hover {
+  background-color: #b52b27;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .tapal-box {
+    width: 85%;
+    padding: 20px;
+  }
+
+  .tapal-header-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-row label {
+    text-align: left;
+    width: 100px;
+  }
+}

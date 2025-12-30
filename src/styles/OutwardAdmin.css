@@ -1,0 +1,197 @@
+
+
+
+
+
+
+.admin-container {
+  width: 80%;
+  background: lightcyan;
+  margin: auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.admin-heading {
+  font-size: 26px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: red;
+}
+
+.admin-subheading {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: green;
+}
+
+.admin-box {
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 8px;
+  width: 70%;
+  margin: auto;
+}
+
+/* ----------------------------------------- */
+/* ROW – stack fields vertically after Inward No */
+/* ----------------------------------------- */
+.admin-row {
+  display: flex;
+  flex-direction: column;   /* STACK fields vertically */
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* ----------------------------------------- */
+/* FIELD – full width with label + input side-by-side */
+/* ----------------------------------------- */
+.admin-field {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.admin-field label {
+  width: 140px;       /* fixed label width */
+  font-weight: bold;
+  text-align: left;
+}
+
+.admin-field input,
+.admin-field textarea,
+.admin-field select {
+  flex: 1;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.admin-field textarea {
+  height: 60px;
+  resize: none;
+}
+
+/* ----------------------------------------- */
+/* FULL-WIDTH FIELD (Upload Section) */
+/* ----------------------------------------- */
+.admin-field-full {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-field-full label {
+  width: 140px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.admin-field-full input,
+.admin-field-full select {
+  flex: 1;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+/* ----------------------------------------- */
+/* BUTTONS */
+/* ----------------------------------------- */
+.admin-btn-submit,
+.admin-btn-clear {
+  background-color: rgb(231, 142, 142);
+  color: black;
+  border: none;
+  padding: 10px 35px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.admin-btn-clear {
+  background-color: rgb(243, 165, 165);
+  margin-left: 20px;
+}
+
+/* ----------------------------------------- */
+/* NOTE AREA */
+/* ----------------------------------------- */
+.admin-note-area {
+  width: 70%;
+  height: 120px;
+  margin-top: 25px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 10px;
+  resize: none;
+}
+.admin-field.file-upload-section {
+  display: flex;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  width: 50% !important;
+}
+
+.ad-upload-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 350px;
+  padding: 10px;
+  border: 1px solid #999;
+  background: #fafafa;
+  border-radius: 5px;
+}
+
+.ad-file-input {
+  flex: 1;
+}
+
+.ad-add-file-btn {
+  width: 40px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #ccc;
+  background: #eaeaea;
+  border-radius: 5px;
+  
+}
+.ad-add-file-btn:hover {
+  background: #dcdcdc;
+}
+.ad-selected-files-list {
+margin-top: 12px;
+  width: 100%;
+  display: block;
+}
+
+.ad-file-row {
+ display: flex;
+  justify-content: space-between;
+  background: #eef1f6;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+.ad-file-name {
+  font-size: 14px;
+  color: #333;
+}
+
+.ad-remove-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 2px 7px;
+  cursor: pointer;
+  border-radius: 4px;
+}

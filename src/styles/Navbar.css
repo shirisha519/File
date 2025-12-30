@@ -1,0 +1,122 @@
+
+
+
+
+.navbar {
+  background-color: #2c3e50;
+  padding: 10px 20px;
+  position: fixed; /* keeps navbar at top */
+  top: 0;
+  width: 100%;
+    z-index: 10;
+  left: 0;
+ 
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item a,
+.dropdown-title {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nav-item a:hover,
+.dropdown-title:hover {
+  color: greenyellow;
+}
+
+/* --- Dropdown styling --- */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* Ensures dropdown sits directly below the title */
+  left: 0;
+  background:pink;
+  border-radius: 6px;
+  list-style: none;
+  padding: 5px 0;
+  min-width: 180px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition: all 0.2s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li {
+  padding: 8px 15px;
+}
+
+.dropdown-menu li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu li:hover {
+  background-color: rgb(216, 169, 83);
+}
+
+/* --- Sub-dropdown --- */
+.dropdown-sub {
+  position: relative;
+}
+
+.dropdown-submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: #b0cde9;
+  border-radius: 6px;
+  list-style: none;
+  padding: 5px 0;
+  min-width: 150px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  color:greenyellow;
+  transform: translateX(5px);
+  transition: all 0.2s ease;
+}
+
+.dropdown-sub:hover .dropdown-submenu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.dropdown-submenu li {
+  padding: 8px 15px;
+}
+
+.dropdown-submenu li:hover {
+  background-color: #4b6584;
+}
+
+.dropdown-sub-title {
+  color: white;
+  cursor: pointer;
+}

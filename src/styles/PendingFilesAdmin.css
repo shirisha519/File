@@ -1,0 +1,110 @@
+
+
+
+.pf-admin-container {
+  background:papayawhip;
+  min-height: 100vh;
+  text-align: center;
+  padding: 25px;
+  font-family: Arial, sans-serif;
+}
+
+.pf-admin-heading {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color:red;
+}
+
+.pf-admin-subheading {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color:green;
+}
+
+.pf-admin-box {
+  width: 60%;
+  background: #fff;
+  border: 2px solid #000;
+  padding: 18px;
+  margin: auto;
+  text-align: left;
+}
+
+.pf-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.pf-row label {
+  width: 90px;
+  font-weight: 600;
+}
+
+.pf-input {
+  border: 1px solid #333;
+  padding: 5px;
+  width: 200px;
+}
+
+.pf-search-btn {
+  display: block;
+  
+  padding: 6px 25px;
+  background: #a1b7d8;
+  color:black;
+ border-radius: 3px solid black;
+  font-weight: bold;
+  cursor: pointer;
+  
+}
+.pf-button-row {
+  display: flex;
+  gap: 0px;
+  color:black;
+
+  margin-top: 10px;
+}
+.pf-view-btn{
+  color:black;
+  background-color: rgb(221, 182, 110);
+  border-radius: 3px solid black;
+}
+.pf-download-btn{
+  color:black;
+  background-color: rgb(222, 243, 202);
+  border-radius: 3px solid black;
+}
+.pf-search-btn,
+.pf-view-btn,
+.pf-download-btn {
+  padding: 8px 16px;
+  cursor: pointer;
+ 
+}
+
+
+.pf-textarea {
+  width: 60%;
+  height: 220px;
+  margin: 18px auto;
+  display: block;
+  border: 1px solid #000;
+  padding: 10px;
+  resize: none;
+  white-space: pre;
+  font-family: monospace;
+}
+
+.pf-print-btn {
+  background: #000;
+  color: #fff;
+  padding: 8px 28px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  display: block;
+  margin: auto;
+}

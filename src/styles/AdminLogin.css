@@ -1,0 +1,107 @@
+
+
+
+
+body {
+  background-color:#d5f7d8;   /* <-- your color here */
+  margin: 0;
+  padding: 0;
+}
+
+.login-page {
+  text-align: center;
+background-color: chocolate;
+  border-top: 6px solid #003366;
+  border-bottom: 6px solid #003366;
+  height: 100vh;
+  font-family: "Cambria", serif;
+  display:inline;
+}
+
+.header {
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: chartreuse;
+  position: relative;
+  text-align: center;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+
+}
+.text{
+  height:30px;
+}
+.header h1 {
+  color: #003366;
+  font-size: 28px;
+  font-weight: bold;
+  border-bottom: 2px solid #003366;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.sub-header h2,
+.sub-header h3 {
+  color:black;
+  font-size: 18px;
+  margin: 2px 0;
+}
+
+.login-box {
+  background: rgba(243, 163, 163, 0.9);
+  width: 320px;
+  margin: 50px auto;
+  padding: 25px 30px;
+  border: 2px solid #003366;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.login-box h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #003366;
+}
+
+.login-box label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #999;
+  border-radius: 3px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 8px;
+  background-color: #003366;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background-color: #004080;
+}
+
+.footer {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-size: 12px;
+  color: #444;
+}

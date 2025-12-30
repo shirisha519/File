@@ -1,0 +1,119 @@
+
+
+
+
+.tapal-dispatched-page{
+    background-color: chartreuse;
+}
+
+/* Container */
+.tapal-dispatch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Titles */
+.tapal-dispatch-title {
+  color: maroon;
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.tapal-dispatch-subtitle {
+  color: green;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Main Box */
+.tapal-dispatch-box {
+  border: 1px solid gray;
+  background-color: white;
+  padding: 25px 40px;
+  width: 520px;
+  border-radius: 6px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header (Inward + Date Row) */
+.tapal-dispatch-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+/* Inward Input */
+.tapal-dispatch-inward-input {
+  margin-left: 8px;
+  width: 140px;
+  padding: 4px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+/* Row Layout */
+.tapal-dispatch-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* Half Width Inputs */
+.tapal-dispatch-half-width {
+  width: 48%;
+}
+
+/* Form Group */
+.tapal-dispatch-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.tapal-dispatch-group label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.tapal-dispatch-group input,
+.tapal-dispatch-group select {
+  padding: 6px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+/* Buttons */
+.tapal-dispatch-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.tapal-dispatch-add-btn,
+.tapal-dispatch-print-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-weight: bold;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tapal-dispatch-add-btn:hover,
+.tapal-dispatch-print-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Textarea */
+.tapal-dispatch-textarea {
+  margin-top: 20px;
+  width: 520px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  padding: 10px;
+  resize: none;
+}

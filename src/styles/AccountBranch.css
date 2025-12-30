@@ -1,0 +1,215 @@
+
+
+
+.accounts-form-page {
+  width: 700px;
+  margin: 40px auto;
+  padding: 25px 40px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #bbccdd, #f0a1c2);
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+/* Titles */
+.accounts-form-title {
+ text-align: center;
+  color: darkred;
+  margin-bottom: 4px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.accounts-sub-title {
+  text-align: center;
+  color: green;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Top Row */
+.accounts-top-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.accounts-form-group {
+  display: flex;
+  align-items: center;
+}
+
+.accounts-form-group label {
+  font-weight: bold;
+  color: #333;
+  margin-right: 8px;
+}
+
+.accounts-form-group input {
+  padding: 4px 5px;
+  font-size: 13px;
+  border: 1px solid #a8701a;
+  border-radius: 4px;
+  background-color: #fff;
+  height: 26px;
+}
+
+/* Form Row - Compact alignment */
+.accounts-form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.accounts-form-row label {
+ width: 180px;
+  text-align: right;
+  margin-right: 10px;
+  font-weight: bold;
+  color: #333;/* ✅ No gap between label and input */
+}
+
+.accounts-form-row input,
+.accounts-form-row select,
+.accounts-form-row textarea {
+    flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+.accounts-form-row textarea {
+  resize: vertical;
+}
+
+/* Buttons */
+.accounts-form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.accounts-submit-btn,
+.accounts-clear-btn {
+  background-color: #8b5e3c;
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.accounts-clear-btn {
+  background-color: #a8701a;
+}
+
+.accounts-submit-btn:hover,
+.accounts-clear-btn:hover {
+  opacity: 0.85;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .accounts-form-page {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .accounts-top-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .accounts-form-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .accounts-form-row label {
+    width: 100%;
+    margin-bottom: 3px;
+  }
+
+  .accounts-form-row input,
+  .accounts-form-row select,
+  .accounts-form-row textarea {
+    width: 100%;
+  }
+}
+  /* --------------------- FILE UPLOAD SECTION ---------------------- */
+
+/* --------------------- FILE UPLOAD SECTION ---------------------- */
+
+/* 1️⃣ Make the whole file upload section a BLOCK container */
+.file-upload-section1 {
+   margin-top: 15px;
+  margin-left: 190px;       /* aligns with other inputs */
+  display: flex;
+  flex-direction: column;   /* makes files appear below */
+  gap: 8px;        /* keeps everything aligned */
+}
+
+/* Upload box (Choose File + + button) */
+.upload-box1 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+}
+
+/* File input */
+.file-input1 {
+  padding: 6px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+/* + Button centered properly */
+.add-file-btn1 {
+  background: #008cff;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.selected-files-list1 {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;    /* ensures files one below another */
+  gap: 6px;
+}
+
+.file-row1 {
+  background: #ffffff;
+  padding: 6px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 280px;
+}
+
+.file-name1 {
+  font-size: 14px;
+  color: #333;
+}
+
+.remove-btn1 {
+  background: red;
+  color: #fff;
+  border: none;
+  padding: 3px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}

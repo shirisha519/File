@@ -1,0 +1,106 @@
+/* ===== Header.css ===== */
+
+/* Overall Header Layout */
+.header {
+  background: linear-gradient(to right, #fff8f2, #f5e9dc); /* soft beige gradient */
+  border-bottom: 2px solid #5a2e0e; /* official brown */
+ padding: 15px 0 10px 0;  /* reduced height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-top: 30px;
+}
+
+/* Inner Container */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* reduced gap between logo and text */
+}
+
+/* Logo Styling */
+.header-logo {
+  width: 80px;
+  height: 75px;
+  object-fit: contain;
+  margin-right: 5px;
+}
+
+/* Title Section */
+.header-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.1; /* compact spacing between lines */
+}
+
+/* Main Title */
+.title {
+  font-size: 20px; /* smaller title text */
+  font-weight: 700;
+  color: #5a2e0e; /* brown */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+/* Subtitle Line 1 */
+.subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2f4f4f; /* dark slate for good contrast */
+  margin: 3px 0 0 0;
+  text-transform: uppercase;
+}
+
+/* Subtitle Line 2 */
+.subtitle2 {
+  font-size: 15px;
+  font-weight: 600;
+  color: green; /* highlight color */
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* Decorative Bottom Line */
+.header::after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 2px;
+  background-color: #a8701a;
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}
+
+/* ===== Responsive Styling ===== */
+@media (max-width: 600px) {
+  .header-content {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .header-logo {
+    width: 65px;
+    height: 60px;
+  }
+
+  .title {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .subtitle2 {
+    font-size: 13px;
+    text-align: center;
+  }
+}

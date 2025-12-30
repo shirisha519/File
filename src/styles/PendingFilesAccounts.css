@@ -1,0 +1,101 @@
+
+
+.pf-acc-container {
+  background: lightgrey;
+  min-height: 100vh;
+  text-align: center;
+  padding: 25px;
+  font-family: Arial, sans-serif;
+}
+
+.pf-acc-heading {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color:red;
+}
+
+.pf-acc-subheading {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color:green;
+}
+
+.pf-acc-box {
+  width: 60%;
+  background: #fff;
+  border: 2px solid #000;
+  padding: 18px;
+  margin: auto;
+  text-align: left;
+}
+
+.pf-acc-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.pf-acc-row label {
+  width: 90px;
+  font-weight: 600;
+}
+
+.pf-acc-input {
+  border: 1px solid #333;
+  padding: 5px;
+  width: 200px;
+}
+
+.pf-acc-search-btn {
+  display: block;
+  padding: 6px 25px;
+  background: #006600;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 2px solid black;
+}
+.pf-acc-button-row {
+  display: flex;
+  gap: 0;                /* ❌ No space between buttons */
+  margin-top: 10px;
+}
+.pf-acc-view-btn{
+  background-color: orange;
+  color:black;
+}
+.pf-acc-download-btn{
+  background-color: chartreuse;
+  color:black;
+}
+.pf-acc-search-btn,
+.pf-acc-view-btn,
+.pf-acc-download-btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 2px solid black;
+}
+.pf-acc-textarea {
+  width: 60%;
+  height: 220px;
+  margin: 18px auto;
+  display: block;
+  border: 1px solid #000;
+  padding: 10px;
+  resize: none;
+  white-space: pre;
+  font-family: monospace;
+}
+
+.pf-acc-print-btn {
+  background: #000;
+  color: #fff;
+  padding: 8px 28px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  display: block;
+  margin: auto;
+}

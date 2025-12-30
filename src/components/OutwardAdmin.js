@@ -1,0 +1,774 @@
+
+
+
+
+import React, { useState,useRef } from "react";
+import "../styles/OutwardAdmin.css"; // use a separate CSS file for Admin
+import API from "../config/api";
+
+const OutwardAdmin = () => {
+  const [outwardNo, setOutwardNo] = useState("");
+    const [fileInputs, setFileInputs] = useState([]);
+    const hiddenFileInput = useRef(null);
+  const [formData, setFormData] = useState({
+    date: "",
+    inwardNo: "",
+    office: "",
+    section: "",
+    seatNo: "",
+    year: "",
+    fileNo: "",    
+    receivedFrom: "",
+    dispatchTo: "",
+    category: "",
+     fileStatus: "", 
+    subject: "",
+    remarks: "",
+    
+  });
+
+  // HANDLE CHANGE
+ const handleChange = (e) => {
+const { name, value } = e.target;
+setFormData({ ...formData, [name]: value });
+};
+ const handleChooseFile = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFileInputs([...fileInputs, { id: Date.now(), file }]);
+    }
+    e.target.value = null; // allow selecting same file again
+  };
+
+  // -----------------------
+  // + Button → Click hidden input
+  // -----------------------
+  const handleAddClick = () => {
+    if (hiddenFileInput.current) {
+      hiddenFileInput.current.click();
+    }
+  };
+
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const formPayload = new FormData();
+
+  // Outward number
+  formPayload.append("outward_no", outwardNo);
+
+  // Form fields
+  formPayload.append("outward_date", formData.date);
+  formPayload.append("inward_no", formData.inwardNo);
+  formPayload.append("office", formData.office);
+  formPayload.append("section", formData.section);
+  formPayload.append("seat_no", formData.seatNo);
+  formPayload.append("file_no", formData.fileNo);
+  formPayload.append("year", formData.year);
+  formPayload.append("received_from", formData.receivedFrom);
+  formPayload.append("dispatch_to", formData.dispatchTo);
+  formPayload.append("category", formData.category);
+  formPayload.append("file_status", formData.fileStatus);
+  formPayload.append("subject", formData.subject);
+  formPayload.append("remarks", formData.remarks);
+
+  // MULTIPLE FILE UPLOAD
+  fileInputs.forEach((item) => {
+    if (item.file) formPayload.append("documents", item.file);
+  });
+
+  try {
+    await API.post(
+      "/api/outward/save",
+      formPayload,
+      { headers: { "Content-Type": "multipart/form-data" } }
+    );
+
+    alert("Outward saved successfully!");
+    handleClear();
+  } catch (err) {
+    console.error(err);
+    alert("Error saving outward data");
+  }
+};
+
+  const handleClear = () => {
+    setFormData({
+      date: "",
+      inwardNo: "",
+      office: "",
+      section: "",
+      seatNo: "",
+      year: "",
+      fileNo: "", 
+      receivedFrom: "",
+      dispatchTo: "",
+      category: "",
+       fileStatus: "", 
+      subject: "",
+      remarks: "",
+    
+    });
+    setFileInputs([]);
+  };
+
+  return (
+    <div className="admin-container">
+      <h2 className="admin-heading">OUTWARD ADMIN</h2>
+      <h3 className="admin-subheading"> Admin Branch</h3>
+
+      <form className="admin-box" onSubmit={handleSubmit}>
+        {/* Outward No + Date */}
+        <div className="admin-row">
+          <div className="admin-field">
+            <label>Outward No</label>
+            <input
+              type="text"
+              value={outwardNo}
+              onChange={(e) => setOutwardNo(e.target.value)}
+            />
+          </div>
+          <div className="admin-field">
+            <label>Date</label>
+            <input
+              type="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        {/* Inward No */}
+        <div className="admin-row">
+          <div className="admin-field">
+            <label>Inward No</label>
+            <input
+              type="text"
+              name="inwardNo"
+              value={formData.inwardNo}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        {/* Office */}
+        <div className="admin-row">
+          <div className="admin-field">
+            <label>Office</label>
+            <select
+              name="office"
+              value={formData.office}
+              onChange={handleChange}
+            >
+              <option value="">Select Office</option>
+              <option value="Admin Office">Admin Office</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Section + Seat */}
+        {formData.office && (
+          <div className="admin-row">
+            <div className="admin-field">
+              <label>Section</label>
+              <select
+                name="section"
+                value={formData.section}
+                onChange={handleChange}
+              >
+                              <option value="">Select Section</option>
+                  <option value="CP Camp">CP Camp</option>
+                  <option value="Addl.CP L&O">Addl.CP L&O</option>
+                  <option value="Addl.CP Crimes & SIT">Addl.CP Crimes & SIT</option>
+                  <option value="Jt.CP SB">Jt.CP SB</option>
+                  <option value="Jt.CP CAR">Jt.CP CAR</option>
+                  <option value="Jt.CP Traffic">Jt.CP Traffic</option>
+                  <option value="Jt.CP DD">Jt.CP DD</option>
+                  <option value="CADO">CADO</option>
+                  <option value="ADO">ADO</option>
+                  <option value="JAO-I Admin">JAO-I Admin</option>
+                  <option value="JAO-II Admin">JAO-II Admin</option>
+                  <option value="JAO Co-ordi">JAO Co-ordi</option>
+                  <option value="A">A</option>
+                  <option value="Arms1">Arms1</option>
+                  <option value="Arms2">Arms2</option>
+                  <option value="Arms3">Arms3</option>
+                  <option value="Arms4">Arms4</option>
+                  <option value="Arms5">Arms5</option>
+                  <option value="Arms6">Arms6</option>
+                  <option value="Arms7">Arms7</option>
+                  <option value="B">B</option>
+                  <option value="B1">B1</option>
+                  <option value="B2">B2</option>
+                  <option value="B3">B3</option>
+                  <option value="B4">B4</option>
+                  <option value="B5">B5</option>
+                  <option value="B6">B6</option>
+                  <option value="B7">B7</option>
+                  <option value="B8">B8</option>
+                  <option value="B9">B9</option>
+                  <option value="B10">B10</option>
+                  <option value="B11">B11</option>
+                  <option value="B12">B12</option>
+                  <option value="B13">B13</option>
+                  <option value="B14">B14</option>
+                  <option value="B15">B15</option>
+                  <option value="B16">B16</option>
+                  <option value="E1">E1</option>
+                  <option value="E2">E2</option>
+                  <option value="E3">E3</option>
+                  <option value="E4">E4</option>
+                  <option value="E5">E5</option>
+                  <option value="E6">E6</option>
+                  <option value="E7">E7</option>
+                  <option value="E8">E8</option>
+                  <option value="L&O">L&O</option>
+                  <option value="L&O1">L&O1</option>
+                  <option value="L&O2">L&O2</option>
+                  <option value="L&O3">L&O3</option>
+                  <option value="L&O4">L&O4</option>
+                  <option value="L&O5">L&O5</option>
+                  <option value="M">M</option>
+                  <option value="M7">M7</option>
+                  <option value="N">N</option>
+                  <option value="N1">N1</option>
+                  <option value="N2">N2</option>
+                  <option value="N3">N3</option>
+                  <option value="N4">N4</option>
+                  <option value="N5">N5</option>
+                  <option value="N6">N6</option>
+                  <option value="N7">N7</option>
+                  <option value="R&T">R&T</option>
+                  <option value="R&T1">R&T1</option>
+                  <option value="R&T2">R&T2</option>
+                  <option value="R&T3">R&T3</option>
+                  <option value="R&T4">R&T4</option>
+                  <option value="R&T5">R&T5</option>
+                  <option value="R&T6">R&T6</option>
+                  <option value="R&T7">R&T7</option>
+                  <option value="P&R">P&R</option>
+                  <option value="P&R1">P&R1</option>
+                  <option value="P&R2">P&R2</option>
+                  <option value="P&R3">P&R3</option>
+                  <option value="P&R4">P&R4</option>
+                  <option value="P&R5">P&R5</option>
+                  <option value="P&R6">P&R6</option>
+                  <option value="T&L1">T&L1</option>
+                  <option value="T&L2">T&L2</option>
+                  <option value="T&L3">T&L3</option>
+                  <option value="T&L4">T&L4</option>
+                  <option value="T&L5">T&L5</option>
+                  <option value="T&L6">T&L6</option>
+                  <option value="T&L7">T&L7</option>
+                  <option value="T&L8">T&L8</option>
+                  <option value="W">W</option>
+                  <option value="W1">W1</option>
+                  <option value="W2">W2</option>
+                  <option value="W3">W3</option>
+                  <option value="W4">W4</option>
+                  <option value="W5">W5</option>
+                  <option value="IT Cell">IT Cell</option>
+                  <option value="DCP IT cell">DCP IT cell</option>
+                  <option value="LA">LA</option>
+                  <option value="e-Challan">e-Challan</option>
+                  <option value="SC Section">SC Section</option>
+                  <option value="ACP-Office i/c CP Office Building">ACP-Office i/c CP Office Building</option>
+                  <option value="SR-I">SR-I</option>
+                  <option value="SR-II">SR-II</option>
+                  <option value="E&B1">E&B1</option>
+                  <option value="E&B2">E&B2</option>
+                  <option value="E&B3">E&B3</option>
+                  <option value="E&B4">E&B4</option>
+                  <option value="E&B5">E&B5</option>
+                  <option value="E&B6">E&B6</option>
+                  <option value="E&B7">E&B7</option>
+                  <option value="AAO">AAO</option>
+                  <option value="CAO">CAO</option>
+                  <option value="Co-operative">Co-operative</option>
+                  <option value="DCP E/Z">DCP E/Z</option>
+                  <option value="DCP C/Z">DCP C/Z</option>
+                  <option value="DCP W/Z">DCP W/Z</option>
+                  <option value="DCP S/Z">DCP S/Z</option>
+                  <option value="DCP N/Z">DCP N/Z</option>
+                  <option value="DCP SEZ">DCP SEZ</option>
+                  <option value="DCP SWZ">DCP SWZ</option>
+                  <option value="HRMS">HRMS</option>
+                  <option value="SMIT">SMIT</option>
+                  <option value="DCP ICCC">DCP ICCC</option>
+                  <option value="Commandant HGs">Commandant HGs</option>
+                  <option value="Stores">Stores</option>
+                  <option value="S1">S1</option>
+                  <option value="Recruitment Sec">Recruitment Sec</option>
+                  <option value="Addl.DCP">Addl.DCP</option>
+                  <option value="Parliament Cell">Parliament Cell</option>
+                  <option value="Recruitment Cell">Recruitment Cell</option>
+                  <option value="Assembly Cell">Assembly Cell</option>
+                  <option value="Election Cell">Election Cell</option>
+                  <option value="Communication Insp">Communication Insp</option>
+                  <option value="Communication">Communication</option>
+                  <option value="Planning Sec">Planning Sec</option>
+                  <option value="Plg-1">Plg-1</option>
+                  <option value="Plg">Plg</option>
+                  <option value="Legal">Legal</option>
+                  <option value="TGiCCC">TGiCCC</option>
+              </select>
+            </div>
+          </div>
+        )}
+        <div className="admin-row">
+         <div className="admin-field">
+              <label>Seat No</label>
+              <input
+                type="text"
+                name="seatNo"
+                value={formData.seatNo}
+                onChange={handleChange}
+              />
+            </div></div>
+
+        {/* Year + Received From */}
+        <div className="admin-row">
+          <div className="admin-field">
+            <label>Year</label>
+            <input
+              type="number"
+              name="year"
+              value={formData.year}
+              onChange={handleChange}
+            />
+          </div>
+           <div className="admin-field">
+        <label>File No</label>
+            <input
+              type="text"
+              name="fileNo"
+              value={formData.fileNo}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="admin-field">
+            <label>Received From</label>
+            <select
+              name="receivedFrom"
+              value={formData.receivedFrom}
+              onChange={handleChange}
+            >
+              <option value="">Select</option>
+                 <option value="CP Camp">CP Camp</option>
+                  <option value="Addl.CP L&O">Addl.CP L&O</option>
+                  <option value="Addl.CP Crimes & SIT">Addl.CP Crimes & SIT</option>
+                  <option value="Jt.CP SB">Jt.CP SB</option>
+                  <option value="Jt.CP CAR">Jt.CP CAR</option>
+                  <option value="Jt.CP Traffic">Jt.CP Traffic</option>
+                  <option value="Jt.CP DD">Jt.CP DD</option>
+                  <option value="CADO">CADO</option>
+                  <option value="ADO">ADO</option>
+                  <option value="JAO-I Admin">JAO-I Admin</option>
+                  <option value="JAO-II Admin">JAO-II Admin</option>
+                  <option value="JAO Co-ordi">JAO Co-ordi</option>
+                  <option value="A">A</option>
+                  <option value="Arms1">Arms1</option>
+                  <option value="Arms2">Arms2</option>
+                  <option value="Arms3">Arms3</option>
+                  <option value="Arms4">Arms4</option>
+                  <option value="Arms5">Arms5</option>
+                  <option value="Arms6">Arms6</option>
+                  <option value="Arms7">Arms7</option>
+                  <option value="B">B</option>
+                  <option value="B1">B1</option>
+                  <option value="B2">B2</option>
+                  <option value="B3">B3</option>
+                  <option value="B4">B4</option>
+                  <option value="B5">B5</option>
+                  <option value="B6">B6</option>
+                  <option value="B7">B7</option>
+                  <option value="B8">B8</option>
+                  <option value="B9">B9</option>
+                  <option value="B10">B10</option>
+                  <option value="B11">B11</option>
+                  <option value="B12">B12</option>
+                  <option value="B13">B13</option>
+                  <option value="B14">B14</option>
+                  <option value="B15">B15</option>
+                  <option value="B16">B16</option>
+                  <option value="E1">E1</option>
+                  <option value="E2">E2</option>
+                  <option value="E3">E3</option>
+                  <option value="E4">E4</option>
+                  <option value="E5">E5</option>
+                  <option value="E6">E6</option>
+                  <option value="E7">E7</option>
+                  <option value="E8">E8</option>
+                  <option value="L&O">L&O</option>
+                  <option value="L&O1">L&O1</option>
+                  <option value="L&O2">L&O2</option>
+                  <option value="L&O3">L&O3</option>
+                  <option value="L&O4">L&O4</option>
+                  <option value="L&O5">L&O5</option>
+                  <option value="M">M</option>
+                  <option value="M7">M7</option>
+                  <option value="N">N</option>
+                  <option value="N1">N1</option>
+                  <option value="N2">N2</option>
+                  <option value="N3">N3</option>
+                  <option value="N4">N4</option>
+                  <option value="N5">N5</option>
+                  <option value="N6">N6</option>
+                  <option value="N7">N7</option>
+                  <option value="R&T">R&T</option>
+                  <option value="R&T1">R&T1</option>
+                  <option value="R&T2">R&T2</option>
+                  <option value="R&T3">R&T3</option>
+                  <option value="R&T4">R&T4</option>
+                  <option value="R&T5">R&T5</option>
+                  <option value="R&T6">R&T6</option>
+                  <option value="R&T7">R&T7</option>
+                  <option value="P&R">P&R</option>
+                  <option value="P&R1">P&R1</option>
+                  <option value="P&R2">P&R2</option>
+                  <option value="P&R3">P&R3</option>
+                  <option value="P&R4">P&R4</option>
+                  <option value="P&R5">P&R5</option>
+                  <option value="P&R6">P&R6</option>
+                  <option value="T&L1">T&L1</option>
+                  <option value="T&L2">T&L2</option>
+                  <option value="T&L3">T&L3</option>
+                  <option value="T&L4">T&L4</option>
+                  <option value="T&L5">T&L5</option>
+                  <option value="T&L6">T&L6</option>
+                  <option value="T&L7">T&L7</option>
+                  <option value="T&L8">T&L8</option>
+                  <option value="W">W</option>
+                  <option value="W1">W1</option>
+                  <option value="W2">W2</option>
+                  <option value="W3">W3</option>
+                  <option value="W4">W4</option>
+                  <option value="W5">W5</option>
+                  <option value="IT Cell">IT Cell</option>
+                  <option value="DCP IT cell">DCP IT cell</option>
+                  <option value="LA">LA</option>
+                  <option value="e-Challan">e-Challan</option>
+                  <option value="SC Section">SC Section</option>
+                  <option value="ACP-Office i/c CP Office Building">ACP-Office i/c CP Office Building</option>
+                  <option value="SR-I">SR-I</option>
+                  <option value="SR-II">SR-II</option>
+                  <option value="E&B1">E&B1</option>
+                  <option value="E&B2">E&B2</option>
+                  <option value="E&B3">E&B3</option>
+                  <option value="E&B4">E&B4</option>
+                  <option value="E&B5">E&B5</option>
+                  <option value="E&B6">E&B6</option>
+                  <option value="E&B7">E&B7</option>
+                  <option value="AAO">AAO</option>
+                  <option value="CAO">CAO</option>
+                  <option value="Co-operative">Co-operative</option>
+                  <option value="DCP E/Z">DCP E/Z</option>
+                  <option value="DCP C/Z">DCP C/Z</option>
+                  <option value="DCP W/Z">DCP W/Z</option>
+                  <option value="DCP S/Z">DCP S/Z</option>
+                  <option value="DCP N/Z">DCP N/Z</option>
+                  <option value="DCP SEZ">DCP SEZ</option>
+                  <option value="DCP SWZ">DCP SWZ</option>
+                  <option value="HRMS">HRMS</option>
+                  <option value="SMIT">SMIT</option>
+                  <option value="DCP ICCC">DCP ICCC</option>
+                  <option value="Commandant HGs">Commandant HGs</option>
+                  <option value="Stores">Stores</option>
+                  <option value="S1">S1</option>
+                  <option value="Recruitment Sec">Recruitment Sec</option>
+                  <option value="Addl.DCP">Addl.DCP</option>
+                  <option value="Parliament Cell">Parliament Cell</option>
+                  <option value="Recruitment Cell">Recruitment Cell</option>
+                  <option value="Assembly Cell">Assembly Cell</option>
+                  <option value="Election Cell">Election Cell</option>
+                  <option value="Communication Insp">Communication Insp</option>
+                  <option value="Communication">Communication</option>
+                  <option value="Planning Sec">Planning Sec</option>
+                  <option value="Plg-1">Plg-1</option>
+                  <option value="Plg">Plg</option>
+                  <option value="Legal">Legal</option>
+                  <option value="TGiCCC">TGiCCC</option>
+              </select>
+          </div>
+        </div>
+
+        {/* DispatchTo + Category */}
+        <div className="admin-row">
+          <div className="admin-field">
+            <label>Dispatch To</label>
+            <select
+              name="dispatchTo"
+              value={formData.dispatchTo}
+              onChange={handleChange}
+            >
+              <option value="">Select Office</option>
+              <option value="CP Camp">CP Camp</option>
+          <option value="Addl.CP L&O">Addl.CP L&O</option>
+          <option value="Addl.CP Crimes & SIT">Addl.CP Crimes & SIT</option>
+          <option value="Jt.CP SB">Jt.CP SB</option>
+          <option value="Jt.CP CAR">Jt.CP CAR</option>
+          <option value="Jt.CP Traffic">Jt.CP Traffic</option>
+          <option value="Jt.CP DD">Jt.CP DD</option>
+          <option value="CADO">CADO</option>
+          <option value="ADO">ADO</option>
+          <option value="JAO-I Admin">JAO-I Admin</option>
+          <option value="JAO-II Admin">JAO-II Admin</option>
+          <option value="JAO Co-ordi">JAO Co-ordi</option>
+          <option value="A">A</option>
+          <option value="Arms1">Arms1</option>
+          <option value="Arms2">Arms2</option>
+          <option value="Arms3">Arms3</option>
+          <option value="Arms4">Arms4</option>
+          <option value="Arms5">Arms5</option>
+          <option value="Arms6">Arms6</option>
+          <option value="Arms7">Arms7</option>
+          <option value="B">B</option>
+          <option value="B1">B1</option>
+          <option value="B2">B2</option>
+          <option value="B3">B3</option>
+          <option value="B4">B4</option>
+          <option value="B5">B5</option>
+          <option value="B6">B6</option>
+          <option value="B7">B7</option>
+          <option value="B8">B8</option>
+          <option value="B9">B9</option>
+          <option value="B10">B10</option>
+          <option value="B11">B11</option>
+          <option value="B12">B12</option>
+          <option value="B13">B13</option>
+          <option value="B14">B14</option>
+          <option value="B15">B15</option>
+          <option value="B16">B16</option>
+          <option value="E1">E1</option>
+          <option value="E2">E2</option>
+          <option value="E3">E3</option>
+          <option value="E4">E4</option>
+          <option value="E5">E5</option>
+          <option value="E6">E6</option>
+          <option value="E7">E7</option>
+          <option value="E8">E8</option>
+          <option value="L&O">L&O</option>
+          <option value="L&O1">L&O1</option>
+          <option value="L&O2">L&O2</option>
+          <option value="L&O3">L&O3</option>
+          <option value="L&O4">L&O4</option>
+          <option value="L&O5">L&O5</option>
+          <option value="M">M</option>
+          <option value="M7">M7</option>
+          <option value="N">N</option>
+          <option value="N1">N1</option>
+          <option value="N2">N2</option>
+          <option value="N3">N3</option>
+          <option value="N4">N4</option>
+          <option value="N5">N5</option>
+          <option value="N6">N6</option>
+          <option value="N7">N7</option>
+          <option value="R&T">R&T</option>
+          <option value="R&T1">R&T1</option>
+          <option value="R&T2">R&T2</option>
+          <option value="R&T3">R&T3</option>
+          <option value="R&T4">R&T4</option>
+          <option value="R&T5">R&T5</option>
+          <option value="R&T6">R&T6</option>
+          <option value="R&T7">R&T7</option>
+          <option value="P&R">P&R</option>
+          <option value="P&R1">P&R1</option>
+          <option value="P&R2">P&R2</option>
+          <option value="P&R3">P&R3</option>
+          <option value="P&R4">P&R4</option>
+          <option value="P&R5">P&R5</option>
+          <option value="P&R6">P&R6</option>
+          <option value="T&L1">T&L1</option>
+          <option value="T&L2">T&L2</option>
+          <option value="T&L3">T&L3</option>
+          <option value="T&L4">T&L4</option>
+          <option value="T&L5">T&L5</option>
+          <option value="T&L6">T&L6</option>
+          <option value="T&L7">T&L7</option>
+          <option value="T&L8">T&L8</option>
+          <option value="W">W</option>
+          <option value="W1">W1</option>
+          <option value="W2">W2</option>
+          <option value="W3">W3</option>
+          <option value="W4">W4</option>
+          <option value="W5">W5</option>
+          <option value="IT Cell">IT Cell</option>
+          <option value="DCP IT cell">DCP IT cell</option>
+          <option value="LA">LA</option>
+          <option value="e-Challan">e-Challan</option>
+          <option value="SC Section">SC Section</option>
+          <option value="ACP-Office i/c CP Office Building">ACP-Office i/c CP Office Building</option>
+          <option value="SR-I">SR-I</option>
+          <option value="SR-II">SR-II</option>
+          <option value="E&B1">E&B1</option>
+          <option value="E&B2">E&B2</option>
+          <option value="E&B3">E&B3</option>
+          <option value="E&B4">E&B4</option>
+          <option value="E&B5">E&B5</option>
+          <option value="E&B6">E&B6</option>
+          <option value="E&B7">E&B7</option>
+          <option value="AAO">AAO</option>
+          <option value="CAO">CAO</option>
+          <option value="Co-operative">Co-operative</option>
+          <option value="DCP E/Z">DCP E/Z</option>
+          <option value="DCP C/Z">DCP C/Z</option>
+          <option value="DCP W/Z">DCP W/Z</option>
+          <option value="DCP S/Z">DCP S/Z</option>
+          <option value="DCP N/Z">DCP N/Z</option>
+          <option value="DCP SEZ">DCP SEZ</option>
+          <option value="DCP SWZ">DCP SWZ</option>
+          <option value="HRMS">HRMS</option>
+          <option value="SMIT">SMIT</option>
+          <option value="DCP ICCC">DCP ICCC</option>
+          <option value="Commandant HGs">Commandant HGs</option>
+          <option value="Stores">Stores</option>
+          <option value="S1">S1</option>
+          <option value="Recruitment Sec">Recruitment Sec</option>
+          <option value="Addl.DCP">Addl.DCP</option>
+          <option value="Parliament Cell">Parliament Cell</option>
+          <option value="Recruitment Cell">Recruitment Cell</option>
+          <option value="Assembly Cell">Assembly Cell</option>
+          <option value="Election Cell">Election Cell</option>
+          <option value="Communication Insp">Communication Insp</option>
+          <option value="Communication">Communication</option>
+          <option value="Planning Sec">Planning Sec</option>
+          <option value="Plg-1">Plg-1</option>
+          <option value="Plg">Plg</option>
+          <option value="Legal">Legal</option>
+          <option value="TGiCCC">TGiCCC</option>
+            </select>
+          </div>
+
+          <div className="admin-field">
+            <label>Category</label>
+            <select
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
+            >
+              <option value="">Select Category</option>
+              <option value="Confidential">Confidential</option>
+              <option value="Non-Confidential">Non-Confidential</option>
+            </select>
+          </div>
+          <div className="admin-row">
+  <div className="admin-field">
+    <label>File Status</label>
+    <select
+      name="fileStatus"
+      value={formData.fileStatus || ""}
+      onChange={handleChange}
+      required
+    >
+      <option value="">-- Select Status --</option>
+      <option value="InProgress">In Progress</option>
+      <option value="Open">Open</option>
+      <option value="Closed">Closed</option>
+    </select>
+  </div>
+</div>
+
+        </div>
+
+        {/* Subject + Remarks */}
+        <div className="admin-row">
+          <div className="admin-field">
+            <label>Subject</label>
+            <textarea
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="admin-field">
+            <label>Remarks</label>
+            <textarea
+              name="remarks"
+              value={formData.remarks}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        {/* File Upload */}
+        <div className="admin-field file-upload-section">
+           
+          <label>Upload Document:</label>
+
+          <div className="ad-upload-box">
+            {/* Hidden actual file input */}
+            <input
+              type="file"
+              ref={hiddenFileInput}
+              style={{ display: "none" }}
+              onChange={handleChooseFile}
+            />
+
+            {/* Visible Choose File */}
+            <input
+              type="file"
+              className="ad-file-input"
+              onChange={handleChooseFile}
+            />
+
+            {/* + Button */}
+            <button
+              type="button"
+              className="ad-add-file-btn"
+              onClick={handleAddClick}
+            >
+              ➕
+            </button>
+          </div>
+
+          {/* Show selected files below */}
+          <div className="ad-selected-files-list">
+            {fileInputs.map((f) => {
+              if (!f.file) return null;
+
+              return (
+                <div key={f.id} className="ad-file-row">
+                  <span className="ad-file-name">{f.file.name}</span>
+                  <button
+                    type="button"
+                    className="ad-remove-btn"
+                    onClick={() =>
+                      setFileInputs(
+                        fileInputs.filter((item) => item.id !== f.id)
+                      )
+                    }
+                  >
+                    ❌
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+       
+
+
+
+        {/* Buttons */}
+        <div className="admin-button-area">
+          <button type="submit" className="admin-btn-submit">
+            SUBMIT
+          </button>
+          <button
+            type="button"
+            className="admin-btn-clear"
+            onClick={handleClear}
+          >
+            CLEAR
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default OutwardAdmin;

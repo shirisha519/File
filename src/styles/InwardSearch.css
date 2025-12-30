@@ -1,0 +1,119 @@
+
+
+
+
+.inward-search-page {
+  width: 950px;
+  margin: 40px auto;
+  padding: 25px 40px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fc91bd, #74f87b);
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.form-title {
+  text-align: center;
+  color: darkred;
+  margin-bottom: 4px;
+  font-size: 22px;
+  font-weight: bold;
+}
+.search-sub-title{
+  text-align: center;
+  color: green;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.search-box, .received-range-box {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+  background-color: #fafafa;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.form-row label {
+  width: 160px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-row input,
+.form-row select {
+  width: 220px;
+  padding: 5px 8px;
+  font-size: 14px;
+}
+
+.button-section {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.search-btn {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.search-btn:hover {
+  background-color: #003f80;
+}
+
+.received-range-box h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.range-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.range-row label {
+  width: 50px;
+}
+
+.range-row input {
+  width: 160px;
+  padding: 5px;
+}
+
+.results-box {
+  margin-top: 20px;
+}
+
+.results-box label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.results-box textarea {
+ 
+  width: 100%;         /* Full width of the container */
+  height: 400px;       /* Set a fixed height */
+  overflow: auto;      /* Enable both horizontal and vertical scroll */
+  white-space: pre;    /* Preserve spaces and formatting for table */
+  font-family: monospace; /* Keep table aligned */
+  resize: none;        /* Disable resizing by user (optional) */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
